@@ -62,3 +62,38 @@ Para executar o cliente, siga estas etapas:
 ```bash
 python client.py
 ```
+
+# Como Funciona o Código
+
+## Servidor (Go)
+
+Quando o cliente envia uma solicitação, o servidor faz o seguinte:
+
+Recebe a solicitação com um número de documento e um formato (0 para CPF, 1 para CNPJ).
+
+Verifica o tamanho do número de documento para determinar se é um CPF (11 dígitos) ou um CNPJ (14 dígitos).
+
+Com base no formato, o servidor decide qual algoritmo de validação aplicar.
+
+Para CPF, ele usa a função isValidCPF para verificar se o número é válido.
+
+Para CNPJ, ele usa a função isValidCNPJ para verificar se o número é válido.
+
+Com base no resultado da validação, o servidor responde com um código de validação (0 para documento válido, 1 para documento inválido, 2 para tamanho de documento inválido, 3 para formato de documento inválido).
+
+## Cliente (Python)
+
+Ao iniciar o cliente, o seguinte acontece:
+
+O cliente solicita que o usuário insira um número de documento.
+
+O cliente também solicita que o usuário escolha o formato (0 para CPF, 1 para CNPJ).
+
+Com base na escolha do usuário, o cliente envia a solicitação gRPC apropriada para o servidor.
+
+O cliente recebe a resposta do servidor, que contém o código de validação.
+
+O cliente exibe o código de validação no console.
+
+Essa abordagem permite que o cliente interaja com o servidor e receba uma resposta que indica se o documento é válido e qual é o código de validação associado.
+
