@@ -32,7 +32,7 @@ Para configurar o servidor, siga estas etapas:
 
 ```bash
 go get google.golang.org/grpc
-
+```
 ## Execução
 
 Para executar o servidor, siga estas etapas:
@@ -41,7 +41,7 @@ Execute o servidor Go:
 
 ```bash
 go run server.go
-
+```
 ## Cliente (Python)
 
 O cliente gRPC permite que você envie solicitações de validação de documentos para o servidor.
@@ -54,11 +54,11 @@ Instale as dependências do Python:
 
 ```bash
 pip install grpcio grpcio-tools
-
+```
 ### Execução
 
 Para executar o cliente, siga estas etapas:
 
 ```bash
 python client.py
-
+```
